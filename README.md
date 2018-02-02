@@ -24,65 +24,62 @@ Let's take an ordinary contact form :
 <div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
-			<div class="panel panel-default">
+	    <div class="panel panel-default">
                 <div class="panel-heading">
                     <h3 class="panel-title">Login</h3>
                 </div>
 
-				<div class="panel-body">
-	                @include('errors.forms')
+		<div class="panel-body">
+	            @include('errors.forms')
 
-					{!! Form::open([
+		    {!! Form::open([
                         'route' => 'login.post',
                         'class' => 'form-horizontal'
                     ]) !!}
 
-						<div class="form-group row{{ $errors->has('email') ? ' has-error' : '' }}">
-							<label for="email" class="col-md-4 control-label">E-mail</label>
-							<div class="col-md-6">
-								<input id="email" type="text" class="form-control" name="email" value="{{ old('email') }}" required autofocus>
+		    <div class="form-group row{{ $errors->has('email') ? ' has-error' : '' }}">
+			<label for="email" class="col-md-4 control-label">E-mail</label>
+			<div class="col-md-6">
+			    <input id="email" type="text" class="form-control" name="email" value="{{ old('email') }}" required autofocus>
 
-								@if ($errors->has('email'))
-									<span class="help-block">
-										<strong>{{ $errors->first('email') }}</strong>
-									</span>
-								@endif
-							</div>
-						</div>
-
-	                    <div class="form-group row{{ $errors->has('password') ? ' has-error' : '' }}">
-							<label for="password" class="col-md-4 control-label">Password</label>
-							<div class="col-md-6">
-								<input id="password" type="password" class="form-control" name="password" required>
-
-								@if ($errors->has('password'))
-					                <span class="help-block">
-					                    <strong>{{ $errors->first('password') }}</strong>
-					                </span>
-					            @endif
-							</div>
-						</div>
-
-						<div class="form-group row">
-							<div class="col-md-6 col-md-offset-4">
-								<div class="form-check">
-									<label class="form-check-label">
-										<input class="form-check-input" type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}>
-										Remember me
-									</label>
-								</div>
-							</div>
-						</div>
-
-	                    <div class="form-group">
-	                        <div class="col-md-6 col-md-offset-4">
-	                            <button type="submit" class="btn btn-primary">
-	                                Login
-	                            </button>
-	                        </div>
-	                    </div>
-					{!! Form::close() !!}
+			    @if ($errors->has('email'))
+			        <span class="help-block">
+				    <strong>{{ $errors->first('email') }}</strong>
+			        </span>
+			    @endif
+                        </div>
 	            </div>
+
+	            <div class="form-group row{{ $errors->has('password') ? ' has-error' : '' }}">
+		        <label for="password" class="col-md-4 control-label">Password</label>
+		        <div class="col-md-6">
+		            <input id="password" type="password" class="form-control" name="password" required>
+
+		            @if ($errors->has('password'))
+			        <span class="help-block">
+			            <strong>{{ $errors->first('password') }}</strong>
+			        </span>
+		            @endif
+		        </div>
+	            </div>
+
+	            <div class="form-group row">
+		        <div class="col-md-6 col-md-offset-4">
+			    <div class="form-check">
+			        <label class="form-check-label">
+			    	    <input class="form-check-input" type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> Remember me
+			        </label>
+			    </div>
+		        </div>
+		    </div>
+
+	            <div class="form-group">
+	                <div class="col-md-6 col-md-offset-4">
+	                    <button type="submit" class="btn btn-primary">Login</button>
+	                </div>
+	            </div>
+	            {!! Form::close() !!}
+	        </div>
             </div>
         </div>
     </div>
@@ -101,28 +98,28 @@ With **Laravel-5-form-builder**, here is the result:
 <div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
-			<div class="panel panel-default">
+	    <div class="panel panel-default">
                 <div class="panel-heading">
                     <h3 class="panel-title">Login</h3>
                 </div>
 
-				<div class="panel-body">
-	                @include('errors.forms')
+		<div class="panel-body">
+	            @include('errors.forms')
 
-					{!! Form::open([
-	                    'route' => 'login.post',
-	                    'class' => 'form-horizontal'
-	                ]) !!}
+		    {!! Form::open([
+	                'route' => 'login.post',
+	                'class' => 'form-horizontal'
+	            ]) !!}
 
-                        {!! Form::emailH('email', 'E-mail', ['required', 'autofocus']) !!}
+                    {!! Form::emailH('email', 'E-mail', ['required', 'autofocus']) !!}
 
-                        {!! Form::passwordH('password', 'Password', ['required']) !!}
+                    {!! Form::passwordH('password', 'Password', ['required']) !!}
 
-                        {!! Form::checkboxH('remember', 'Remember me', old('remember'), []) !!}
+                    {!! Form::checkboxH('remember', 'Remember me', old('remember'), []) !!}
 
-                        {!! Form::submitH('Login') !!}
-					{!! Form::close() !!}
-	            </div>
+                    {!! Form::submitH('Login') !!}
+		    {!! Form::close() !!}
+	        </div>
             </div>
         </div>
     </div>
