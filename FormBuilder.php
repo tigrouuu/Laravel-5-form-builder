@@ -6,7 +6,7 @@ use Collective\Html\FormFacade as Form;
 
 class FormBuilder
 {
-    private static $viewPath = 'layouts.components.form';
+    private static $viewPath = 'components';
 
     /**
      * Override the components of LaravelCollective to fit Bootstrap.
